@@ -1,0 +1,13 @@
+Package: analyzemedia
+Type: Package
+Title: Analyze Advertising Data
+Version: 0.1.0
+Author: Matthew Currier
+Maintainer: The package maintainer <currier.matthew@gmail.com>
+Description: Facilitate analysis of various types of advertising data.
+Imports:
+    tidyverse,
+    combinat
+License: What license is it under?
+Encoding: UTF-8
+LazyData: true
