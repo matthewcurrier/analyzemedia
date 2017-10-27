@@ -8,7 +8,7 @@
 #' @keywords percent change, previous quarter, previous year
 #' @export
 #' @examples
-#' ts_summarize(df, spend, impr, clicks, country, city)
+#' ts_summarize(df, date, value, country, city)
 
 ts_summarize <- function(df, date, value, ...) {
   value <- enquo(value)
