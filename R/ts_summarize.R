@@ -9,6 +9,7 @@
 #' @export
 #' @examples
 #' ts_summarize(df, date, value, country, city)
+#' ts_summarize(bookings, day, value, channel, metric_type)
 
 ts_summarize <- function(df, date, value, ...) {
   value <- enquo(value)
