@@ -11,21 +11,20 @@
 #' ts_summarize(df, date, value, country, city)
 #' ts_summarize(bookings, day, value, channel, metric_type)
 
-ts_summarize <- function(df, date, value, ...) {
+ts_summarize2 <- function(df, date, value, ...) {
+
   value <- enquo(value)
   group_var <- quos(...)
   date <- enquo(date)
-
-  df <- df %>% arrange(!!date, !!!group_var)
-
-  df <- df %>%
-    group_by(!!!group_var) %>%
-    mutate(lag_value=lag(value),
-           per_change=format((value - lag_value) / value, digits=3)
-           ) %>%
-    ungroup()
-
+  df$year <- format(date, '%Y')
+  df
+  # date <- as.Date(!!date)
+  # df$year <- format(!!date, '%Y')
+  # df$date2 <- date
+  # as.Date(!!date)
+  # df$year <- format(!!date, '%Y')
 }
+
 
 
 

@@ -10,8 +10,6 @@
 #' cc <- create_combos(strings, 3)
 #' print(cc)
 
-
-
 create_combos <- function(strings, comb) {
   library(combinat)
 
