@@ -23,7 +23,7 @@ marin_results$undersc_count <- str_count(marin_results$campaign, "_")
 marin_results <- separate(marin_results, campaign, into = c("region", "country", "lang", "engine", "brand_nonbrand", "device"), "_")
 marin_results <- marin_results %>% select(-status, -undersc_count, -start_date, -end_date)
 
-
+marin_results <- as.data.frame(marin_results)
 devtools::use_data(marin_results, overwrite = TRUE)
 
 bookings <- readxl::read_excel("bookings_data.xlsx", "bookings")
@@ -45,4 +45,6 @@ bookings_2013$value <- abs(round(bookings_2013$value + rnorm(nrow(bookings_2013)
 bookings2 <- rbind(b, bookings_2013)
 bookings2$day <- as.Date(bookings2$day)
 
+
+bookings2 <- as.data.frame(bookings2)
 devtools::use_data(bookings2, overwrite = TRUE)
