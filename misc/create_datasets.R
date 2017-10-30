@@ -48,3 +48,22 @@ bookings2$day <- as.Date(bookings2$day)
 
 bookings2 <- as.data.frame(bookings2)
 devtools::use_data(bookings2, overwrite = TRUE)
+
+
+library(xtable)
+
+
+data(mtcars)
+mtcars$cyl <- factor(mtcars$cyl, levels = c("4","6","8"),
+                     labels = c("four","six","eight"))
+tbl <- ftable(mtcars$cyl, mtcars$vs, mtcars$am, mtcars$gear,
+              row.vars = c(2, 4),
+              dnn = c("Cylinders", "V/S", "Transmission", "Gears"))
+
+
+
+
+xftbl <- xtableFtable(bookings2_test2)
+
+print.xtableFtable(xftbl, booktabs = TRUE)
+

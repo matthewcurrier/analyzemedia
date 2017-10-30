@@ -12,6 +12,7 @@ explode_date <- function(df, date) {
   df <- as.data.frame(df) #Tibbles don't responed well to this function.
 
   df[, "y"] <- format(df[, date], '%Y')
+  df[, "q"] <- lubridate::quarter(df[, date])
   df[, "m"] <- format(df[, date], '%m')
   df[, "d"] <- format(df[, date], '%d')
   return(df)
